@@ -1,5 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
+import { Provider } from '@tarojs/redux'
 import Index from './pages/index'
+import store from  './store/index'
 
 import './app.scss'
 
@@ -7,7 +9,8 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/test/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -27,7 +30,9 @@ class App extends Component {
 
   render () {
     return (
-      <Index />
+      <Provider store={store}>
+        <Index />
+      </Provider>
     )
   }
 }
