@@ -16,7 +16,9 @@ class Test extends Component {
 
   componentWillMount () { }
 
-  componentDidMount () { }
+  componentDidMount () {
+
+  }
 
   componentWillUnmount () { }
 

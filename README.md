@@ -1,2 +1,1 @@
-# taro-small-program
-用taro+rematch搭建的一个demo
+#### 固生堂 拼团 小程序

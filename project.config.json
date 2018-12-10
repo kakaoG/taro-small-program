@@ -1,14 +1,15 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "gst-small-program",
-	"description": "重构原有小程序",
-	"appid": "touristappid",
+	"projectname": "mp-pintuan",
+	"description": "固生堂拼团小程序",
+	"appid": "wxee28be0d0995fb27",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
 		"postcss": false,
 		"minified": false,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"condition": {}

@@ -1,7 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Text, Button, Swiper, SwiperItem, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux';
 import './index.scss'
+
+import { test } from '../../service/index';
 
 class Index extends Component {
 
@@ -11,11 +13,25 @@ class Index extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      swiperInfo: []
+    }
   }
 
-  componentWillMount () { }
+  componentWillMount () {
+  }
 
-  componentDidMount () { }
+  componentDidMount () {
+    this.getData();
+  }
+
+  async getData() {
+    const { status, data } = await test.getBanners({
+      city_no: '020',
+      platform: 16
+    });
+    if(status === 0) this.setState({swiperInfo: data})
+  }
 
   componentWillUnmount () { }
 
@@ -29,8 +45,17 @@ class Index extends Component {
 
   render () {
     const { handleIncrement } = this.props;
+    const { swiperInfo } = this.state;
+
     return (
       <View className='index'>
+        <Swiper>
+          {swiperInfo.map((item, idx) =>
+            <SwiperItem key={idx}>
+              <Image src={`https://admin.360gst.com/data/upload/${item.img_url}`} />
+            </SwiperItem>
+          )}
+        </Swiper>
         <Text>num:{this.props.count}</Text>
         <Button onClick={handleIncrement}>+</Button>
         <Button onClick={this.handleRoute}>跳转Test页</Button>
